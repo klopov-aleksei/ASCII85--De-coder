@@ -87,7 +87,13 @@ void decodeBuffered()
         }
     }
     
-    if(!group.empty()) {
+    if(!group.empty()) 
+    {
+        if (group.size() == 1) 
+        {
+            std::cerr << "Ошибка: неполная группа (менее 2 символов)\n";
+            std::exit(1);
+        }
         int missing = 5 - group.size();
         
         for (int i = 0; i < missing; i++) 
@@ -225,6 +231,11 @@ void decodeStream()
     }
     if(!group.empty())
     {
+        if (group.size() == 1) 
+        {
+            std::cerr << "Ошибка: неполная группа (менее 2 символов)\n";
+            std::exit(1);
+        }
         int missing = 5 - group.size();
         for (int i = 0; i < missing; i++) 
         {
