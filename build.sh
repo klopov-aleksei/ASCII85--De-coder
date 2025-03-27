@@ -1,5 +1,11 @@
 #!/bin/bash
 
-set -e
+build_app() 
+{
+    g++ -o ascii85 main.cpp
+}
 
-gcc -o ascii85 test.c
+build_tests() 
+{
+    g++ -DUNIT_TEST -o test test.cpp main.cpp -lgtest -lgtest_main -lpthread
+}
